@@ -1,6 +1,4 @@
-package com.middleware.backend.entities;
-
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+package com.middleware.backend.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,10 +7,11 @@ import javax.persistence.Id;
 
 @Entity
 public class Post {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+    private String description;
+    private String symptom;
 
     public Integer getId() {
         return id;
@@ -46,7 +45,5 @@ public class Post {
         this.votes = votes;
     }
 
-    private String description;
-    private String symptom;
     private Integer votes;
 }
