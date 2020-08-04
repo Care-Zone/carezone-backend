@@ -40,7 +40,7 @@ public class PostController {
         }
     }
 
-    @PostMapping()
+    @PostMapping("add")
     public @ResponseBody
     SuccessResponse createPost(@RequestBody Post post) {
         if (post.getDescription() == null || post.getSymptom() == null) {
@@ -55,9 +55,7 @@ public class PostController {
     public @ResponseBody
     SuccessResponse updatePost(@PathVariable Integer postId, @RequestBody Post newpost) {
         Optional<Post> optionalPost = postRepository.findById(postId);
-        if (optionalPost.isPresent()) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-        }
+
 
         Post oldpost = optionalPost.get();
 
